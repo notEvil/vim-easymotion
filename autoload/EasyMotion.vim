@@ -629,7 +629,7 @@ function! s:get_escaped_group_char(dict, char) "{{{
     " Used inside `[]`
     return escape(get(a:dict, a:char, ''), '^')
 endfunction "}}}
-let s:patterns = {'.': '[^a-zA-Z0-9_ \\t\\n]', ' ': '[ \\t\\n]'}
+let s:patterns = {'.': '[^a-zA-Z0-9_ \t\n]', ' ': '[ \t\n]'}
 function! s:escape_regexp_char(char) "{{{
     return join(map(split(escape(a:char, '$^~\[]*'), '\zs'), {key, val -> get(s:patterns, val, val)}), '')
 endfunction "}}}
